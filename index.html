@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Скажем НЕТ третьему сроку | Партия «Яблоко»</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Gilroy';src:local('Gilroy'),local('Gilroy-Regular');font-weight:400;font-display:swap}
+@font-face{font-family:'Gilroy';src:local('Gilroy-Medium');font-weight:500;font-display:swap}
+@font-face{font-family:'Gilroy';src:local('Gilroy-SemiBold');font-weight:600;font-display:swap}
+@font-face{font-family:'Gilroy';src:local('Gilroy-Bold');font-weight:700;font-display:swap}
+@font-face{font-family:'Gilroy';src:local('Gilroy-ExtraBold');font-weight:800;font-display:swap}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+    font-family:'Roboto Condensed','Arial Narrow',sans-serif;
+    font-weight:800;
+    background:#0d0d0d;
+    color:#fff;
+    line-height:1.4;
+    overflow-x:hidden;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+/* ЗАГРУЗКА */
+#loading{position:fixed;inset:0;background:#0d0d0d;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity .5s}
+#loading.hide{opacity:0;visibility:hidden}
+#loading .title{font-size:64px;font-weight:800;color:#fff;letter-spacing:4px}
+#loading .title span{color:#CC0000}
+#loading .sub{font-size:18px;color:#888;margin-top:12px;font-weight:700}
+#loading .bar{width:280px;height:4px;background:#333;margin-top:34px}
+#loading .bar span{display:block;height:100%;width:0;background:#04A902;animation:loadBar 1.8s linear forwards}
+@keyframes loadBar{to{width:100%}}
+
+/* ВЕРХНЯЯ ПОЛОСА */
+.top-strip{background:#CC0000;padding:9px 0;font-size:13px;font-weight:800;text-align:center;letter-spacing:1.5px;color:#fff}
+.top-strip span{color:#FFD700}
+
+/* ШАПКА */
+header{background:#0d0d0d;border-bottom:3px solid #CC0000;padding:20px 0;position:sticky;top:0;z-index:100}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.logo-wrap{font-family:'Gilroy','Roboto Condensed',sans-serif;font-weight:800;letter-spacing:2px;cursor:pointer;transition:opacity .2s}
+.logo-wrap:hover{opacity:.85}
+.logo-wrap .main-name{font-size:26px;color:#fff;letter-spacing:3px;display:block}
+.logo-wrap .sub-name{font-size:12px;color:#04A902;letter-spacing:4px;font-weight:700;margin-top:2px;display:block}
+
+nav{display:flex;flex-wrap:wrap;gap:0;align-items:center}
+nav a{color:#ccc;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:1.5px;padding:10px 16px;cursor:pointer;transition:all .2s;position:relative;text-transform:uppercase}
+nav a:hover{color:#04A902;background:rgba(4,169,2,.08)}
+nav a::after{content:'';position:absolute;bottom:2px;left:50%;width:0;height:2px;background:#04A902;transition:all .3s;transform:translateX(-50%)}
+nav a:hover::after{width:70%}
+nav a.cta{color:#fff;background:#CC0000;padding:12px 22px;margin-left:14px}
+nav a.cta::after{display:none}
+nav a.cta:hover{background:#04A902;color:#fff;transform:translateY(-2px)}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#0d0d0d 0%,#1a0000 100%);padding:80px 24px 90px;text-align:center;position:relative;overflow:hidden;border-bottom:5px solid #CC0000}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(204,0,0,.04) 40px,rgba(204,0,0,.04) 42px);pointer-events:none}
+.hero-inner{position:relative;max-width:1100px;margin:0 auto}
+.hero .tagline{display:inline-block;background:#04A902;color:#fff;padding:8px 22px;font-size:14px;letter-spacing:3px;margin-bottom:30px;font-weight:800}
+.hero h1{font-size:88px;font-weight:800;line-height:.95;letter-spacing:-1px;margin-bottom:26px;color:#fff}
+.hero h1 .strike{color:#CC0000;display:inline-block}
+.hero h1 .no{color:#fff;background:#CC0000;padding:0 20px;display:inline-block;transform:rotate(-2deg);margin:0 4px}
+.hero .subtitle{font-size:22px;color:#ccc;font-weight:700;max-width:820px;margin:0 auto 40px;line-height:1.35;letter-spacing:.8px}
+.hero .cta-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero .cta-btn{display:inline-block;background:#04A902;color:#fff;padding:20px 44px;font-size:18px;font-weight:800;text-decoration:none;letter-spacing:2px;border:none;cursor:pointer;font-family:inherit;transition:all .2s;text-transform:uppercase;border-radius:4px}
+.hero .cta-btn:hover{background:#fff;color:#04A902;transform:translateY(-2px);box-shadow:0 8px 20px rgba(4,169,2,.3)}
+.hero .cta-btn.secondary{background:transparent;border:3px solid #CC0000;color:#fff}
+.hero .cta-btn.secondary:hover{background:#CC0000;color:#fff;box-shadow:0 8px 20px rgba(204,0,0,.3)}
+
+/* СЕКЦИИ */
+section{padding:80px 24px;border-bottom:1px solid #222}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;font-size:13px;font-weight:800;color:#04A902;letter-spacing:3px;margin-bottom:18px;padding-left:14px;border-left:4px solid #04A902}
+h2.section-title{font-size:56px;font-weight:800;line-height:1;color:#fff;margin-bottom:36px;letter-spacing:-.5px}
+h2.section-title .accent{color:#CC0000}
+
+/* ТАЙМЕР */
+.timer-section{background:#141414;text-align:center}
+.timer{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:20px}
+.timer-block{background:#0d0d0d;border:2px solid #CC0000;padding:26px 32px;min-width:130px;transition:all .3s}
+.timer-block:hover{transform:translateY(-4px);border-color:#04A902}
+.timer-block .num{font-size:64px;font-weight:800;color:#fff;line-height:1;letter-spacing:-2px}
+.timer-block .label{font-size:13px;color:#888;font-weight:800;letter-spacing:2px;margin-top:10px}
+
+/* ХРОНОЛОГИЯ */
+.timeline{position:relative;padding-left:40px;margin-top:20px}
+.timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:3px;background:#CC0000}
+.tl-item{position:relative;padding-bottom:38px;transition:transform .3s}
+.tl-item:hover{transform:translateX(6px)}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-33px;top:6px;width:18px;height:18px;background:#04A902;border:3px solid #0d0d0d;box-shadow:0 0 0 2px #04A902}
+.tl-item.bad::before{background:#CC0000;box-shadow:0 0 0 2px #CC0000}
+.tl-date{display:inline-block;background:#CC0000;color:#fff;padding:5px 14px;font-size:12px;letter-spacing:2px;font-weight:800;margin-bottom:12px}
+.tl-item.good .tl-date{background:#04A902}
+.tl-title{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.25;letter-spacing:.2px}
+.tl-text{font-size:15px;color:#999;font-weight:700;line-height:1.6;letter-spacing:.3px;max-width:850px}
+
+/* ФАКТЫ */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.fact{background:#141414;border:1px solid #222;border-left:5px solid #CC0000;padding:32px 28px;transition:all .3s}
+.fact:hover{background:#1a1a1a;border-left-color:#04A902;transform:translateX(4px)}
+.fact .num{font-size:56px;font-weight:800;color:#CC0000;line-height:1;margin-bottom:12px;letter-spacing:-2px}
+.fact .num.green{color:#04A902}
+.fact h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.2}
+.fact p{font-size:15px;color:#aaa;font-weight:700;line-height:1.5}
+
+/* МЕТОДЫ */
+.methods{background:#141414}
+.method-item{display:flex;gap:24px;padding:26px 0;border-bottom:1px solid #2a2a2a;align-items:flex-start;transition:all .3s}
+.method-item:hover{padding-left:12px;border-bottom-color:#CC0000}
+.method-item:last-child{border-bottom:none}
+.method-num{flex-shrink:0;font-size:46px;font-weight:800;color:#CC0000;line-height:1;min-width:70px;letter-spacing:-2px}
+.method-body h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:8px}
+.method-body p{font-size:15px;color:#999;font-weight:700;line-height:1.55}
+
+/* ВЕТО */
+.blacklist{background:#080808}
+.veto-item{background:#141414;border:1px solid #2a2a2a;padding:26px 30px;margin-bottom:16px;display:flex;align-items:flex-start;gap:24px;transition:all .3s}
+.veto-item:hover{background:#1a0808;border-color:#CC0000;transform:translateX(4px)}
+.veto-icon{flex-shrink:0;width:60px;height:60px;background:#CC0000;color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800}
+.veto-content{flex:1}
+.veto-content h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.25}
+.veto-content p{font-size:15px;color:#999;font-weight:700;line-height:1.5}
+.veto-content .status{display:inline-block;background:#2a0000;color:#CC0000;padding:4px 12px;font-size:11px;font-weight:800;letter-spacing:2px;margin-top:12px}
+
+/* ИНИЦИАТИВА */
+.initiative-block{background:linear-gradient(135deg,#04A902 0%,#027A02 100%);padding:60px 50px;color:#fff;margin-top:30px;position:relative;overflow:hidden}
+.initiative-block::before{content:'2';position:absolute;right:-20px;top:-60px;font-size:320px;font-weight:800;color:rgba(255,255,255,.08);line-height:1}
+.initiative-block h3{font-size:38px;font-weight:800;line-height:1.1;margin-bottom:22px;position:relative}
+.initiative-block p{font-size:17px;font-weight:700;line-height:1.55;max-width:780px;position:relative}
+.initiative-block .sig{margin-top:28px;padding-top:24px;border-top:2px solid rgba(255,255,255,.3);font-size:15px;letter-spacing:1.5px;position:relative}
+
+/* ЦИТАТА */
+.quote-card{background:#0d0d0d;border-left:6px solid #FFD700;padding:40px 44px;position:relative;max-width:900px;margin:0 auto;transition:all .3s}
+.quote-card:hover{transform:translateX(6px);border-left-color:#04A902}
+.quote-card::before{content:'«';position:absolute;top:-20px;left:20px;font-size:160px;color:#FFD700;opacity:.12;line-height:1;font-family:Georgia,serif}
+.quote-text{font-size:32px;font-weight:800;color:#FFD700;line-height:1.3;margin-bottom:20px;letter-spacing:.2px;position:relative;text-transform:none;font-style:italic}
+.quote-meta{font-size:13px;color:#888;font-weight:800;letter-spacing:2px}
+.quote-meta strong{color:#CC0000}
+
+/* ОПРОС */
+.poll-section{background:#0d0d0d}
+.poll-box{background:#141414;border:2px solid #CC0000;padding:40px;max-width:800px;margin:0 auto}
+.poll-q{font-size:26px;font-weight:800;color:#fff;margin-bottom:28px;text-align:center;line-height:1.25}
+
+/* DISCORD LOGIN */
+.discord-login{background:#5865F2;color:#fff;border:none;padding:20px 42px;font-size:17px;font-weight:800;letter-spacing:2px;cursor:pointer;font-family:inherit;text-transform:uppercase;border-radius:6px;transition:all .2s;display:inline-flex;align-items:center;gap:12px}
+.discord-login:hover{background:#fff;color:#5865F2;transform:translateY(-2px)}
+.discord-login .dicon{font-size:22px}
+.auth-note{font-size:12px;color:#888;font-weight:700;letter-spacing:1.5px;margin-top:16px;text-align:center;line-height:1.7}
+.auth-note .hl{color:#04A902}
+.auth-note .hlr{color:#CC0000}
+
+/* ЮЗЕР БЕЙДЖ */
+.poll-user-badge{display:flex;align-items:center;gap:12px;background:#0a2a0a;border:1px solid #04A902;padding:12px 18px;margin-bottom:22px;font-size:13px;font-weight:800;letter-spacing:1px;border-radius:6px;flex-wrap:wrap}
+.poll-user-badge .pdot{width:10px;height:10px;background:#04A902;border-radius:50%;box-shadow:0 0 8px #04A902}
+.poll-user-badge #pollUserName{color:#FFD700;text-transform:none;font-weight:800}
+.poll-user-badge .pverified{margin-left:auto;color:#04A902;font-size:11px;letter-spacing:1.5px}
+
+/* ОПЦИИ ГОЛОСОВАНИЯ */
+.poll-options{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.poll-opt{background:#0d0d0d;border:2px solid #333;padding:18px 22px;cursor:pointer;font-size:18px;font-weight:800;color:#fff;letter-spacing:1px;transition:all .2s;font-family:inherit;text-align:left;text-transform:uppercase;border-radius:4px;position:relative}
+.poll-opt:hover{border-color:#04A902;background:#0a1a0a;transform:translateX(4px)}
+.poll-opt.selected{border-color:#04A902;background:#0a2a0a}
+.poll-opt:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* РЕЗУЛЬТАТЫ */
+.poll-results{display:none}
+.poll-results.show{display:block}
+.poll-result-row{margin-bottom:18px}
+.poll-result-label{display:flex;justify-content:space-between;font-size:15px;font-weight:800;margin-bottom:6px;letter-spacing:1px}
+.poll-bar{height:36px;background:#0d0d0d;border:2px solid #333;position:relative;overflow:hidden}
+.poll-bar-fill{height:100%;background:#04A902;transition:width 1s ease;width:0}
+.poll-bar-fill.red{background:#CC0000}
+.poll-bar-fill.gray{background:#666}
+.poll-bar-text{position:absolute;top:50%;left:14px;transform:translateY(-50%);font-size:13px;font-weight:800;color:#fff;letter-spacing:1.5px;text-shadow:0 1px 3px rgba(0,0,0,.8)}
+.poll-total{text-align:center;color:#888;font-size:13px;font-weight:800;letter-spacing:1.5px;margin-top:20px;padding-top:18px;border-top:1px solid #2a2a2a}
+.poll-thanks{text-align:center;color:#04A902;font-size:16px;font-weight:800;letter-spacing:1.5px;margin-bottom:20px}
+.poll-user-info{text-align:center;color:#888;font-size:13px;font-weight:800;letter-spacing:1px;margin-bottom:20px}
+.poll-user-info strong{color:#FFD700;text-transform:none}
+
+/* БАЗА */
+.database-section{background:#141414}
+.db-controls{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;justify-content:center}
+.db-filter{background:#0d0d0d;border:2px solid #333;color:#ccc;padding:10px 20px;font-size:13px;font-weight:800;letter-spacing:1.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;transition:all .2s;border-radius:4px}
+.db-filter:hover{border-color:#04A902;color:#fff}
+.db-filter.active{background:#04A902;border-color:#04A902;color:#fff}
+.db-table-wrap{background:#0d0d0d;border:2px solid #CC0000;overflow:hidden;overflow-x:auto}
+.db-table{width:100%;border-collapse:collapse;min-width:600px}
+.db-table th{background:#1a0000;color:#fff;padding:14px 18px;text-align:left;font-size:12px;font-weight:800;letter-spacing:2px;border-bottom:2px solid #CC0000}
+.db-table td{padding:12px 18px;font-size:14px;font-weight:700;border-bottom:1px solid #1a1a1a;letter-spacing:.5px}
+.db-table tr:last-child td{border-bottom:none}
+.db-table tr{transition:background .2s}
+.db-table tr:hover td{background:#1a1a1a}
+.db-nick{color:#FFD700;text-transform:none;font-weight:800}
+.db-discord{color:#5865F2;font-size:11px;font-weight:800;text-transform:none;display:block;margin-top:2px}
+.db-vote-no{color:#04A902;font-weight:800}
+.db-vote-yes{color:#CC0000;font-weight:800}
+.db-vote-unsure{color:#888;font-weight:800}
+.db-time{color:#666;font-size:12px;letter-spacing:1px;text-transform:none}
+.db-empty{padding:40px 20px;text-align:center;color:#666;font-size:14px;letter-spacing:1.5px;font-weight:800}
+.db-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:24px}
+.db-stat{background:#0d0d0d;border:2px solid #333;padding:20px;text-align:center}
+.db-stat .val{font-size:36px;font-weight:800;color:#04A902;line-height:1;letter-spacing:-1px}
+.db-stat .val.red{color:#CC0000}
+.db-stat .lbl{font-size:11px;color:#888;font-weight:800;letter-spacing:2px;margin-top:8px}
+.db-actions{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.db-action-btn{background:#333;border:2px solid #333;color:#fff;padding:12px 24px;font-size:13px;font-weight:800;letter-spacing:1.5px;cursor:pointer;font-family:inherit;text-transform:uppercase;transition:all .2s;border-radius:4px}
+.db-action-btn:hover{background:#04A902;border-color:#04A902}
+
+/* АВАТАРКА */
+.avatar-section{background:#141414;text-align:center}
+.avatar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:900px;margin:30px auto 40px}
+.avatar-preview{background:#0d0d0d;border:2px solid #333;padding:20px;text-align:center;transition:all .3s;cursor:pointer}
+.avatar-preview:hover{border-color:#04A902;transform:translateY(-4px)}
+.avatar-preview.active{border-color:#04A902;box-shadow:0 0 20px rgba(4,169,2,.3)}
+.avatar-preview canvas{width:100%;max-width:200px;display:block;margin:0 auto 16px;border-radius:4px}
+.avatar-preview .label{font-size:13px;color:#888;font-weight:800;letter-spacing:1.5px}
+.avatar-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-action{background:#04A902;color:#fff;padding:16px 32px;font-size:15px;font-weight:800;letter-spacing:2px;border:2px solid #04A902;cursor:pointer;font-family:inherit;text-transform:uppercase;transition:all .2s;border-radius:4px}
+.btn-action:hover{background:#fff;color:#04A902;transform:translateY(-2px)}
+
+/* КОПИРОВАТЬ */
+.share-section{background:#0d0d0d;padding:60px 24px;text-align:center}
+.share-title{font-size:32px;font-weight:800;color:#fff;margin-bottom:24px;letter-spacing:.5px}
+.share-btn{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;font-size:15px;font-weight:800;letter-spacing:1.5px;background:#04A902;color:#fff;border:2px solid #04A902;cursor:pointer;font-family:inherit;text-transform:uppercase;transition:all .2s;border-radius:4px}
+.share-btn:hover{background:#fff;color:#04A902;transform:translateY(-2px)}
+
+/* МАНИФЕСТ */
+.manifesto{background:#CC0000;color:#fff;padding:90px 24px;text-align:center}
+.manifesto .inner{max-width:1000px;margin:0 auto}
+.manifesto h2{font-size:64px;font-weight:800;line-height:1;letter-spacing:-1px;margin-bottom:30px}
+.manifesto p{font-size:20px;font-weight:700;line-height:1.55;margin-bottom:18px}
+.manifesto .big{font-size:28px;margin-top:40px;padding-top:40px;border-top:3px solid rgba(255,255,255,.3)}
+
+/* CTA */
+.final-cta{background:#0d0d0d;padding:100px 24px;text-align:center}
+.final-cta h2{font-size:56px;font-weight:800;line-height:1;margin-bottom:26px}
+.final-cta h2 span{color:#04A902}
+.final-cta p{font-size:18px;color:#aaa;font-weight:700;max-width:700px;margin:0 auto 40px;line-height:1.5}
+.final-cta .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.final-cta a{display:inline-block;padding:20px 44px;font-size:17px;font-weight:800;letter-spacing:2px;text-decoration:none;text-transform:uppercase;transition:all .2s;border-radius:4px}
+.final-cta a.green{background:#04A902;color:#fff}
+.final-cta a.green:hover{background:#fff;color:#04A902;transform:translateY(-2px)}
+.final-cta a.outline{background:transparent;border:3px solid #CC0000;color:#fff}
+.final-cta a.outline:hover{background:#CC0000;transform:translateY(-2px)}
+
+/* НАВЕРХ */
+.to-top{position:fixed;bottom:24px;right:24px;width:50px;height:50px;background:#CC0000;color:#fff;border:none;cursor:pointer;font-size:22px;font-weight:800;z-index:900;opacity:0;visibility:hidden;transition:all .3s;font-family:inherit;border-radius:4px}
+.to-top.show{opacity:1;visibility:visible}
+.to-top:hover{background:#04A902;transform:translateY(-4px)}
+
+/* ПОДВАЛ */
+footer{background:#000;padding:40px 24px;text-align:center;border-top:3px solid #CC0000}
+footer .slogan{font-size:22px;font-weight:800;color:#fff;letter-spacing:2px;margin-bottom:14px}
+footer .slogan span{color:#04A902}
+footer .info{font-size:13px;color:#666;font-weight:700;letter-spacing:.8px;line-height:1.8}
+
+/* АДАПТИВ */
+@media(max-width:820px){
+    .hero h1{font-size:48px}
+    h2.section-title{font-size:34px}
+    .timer-block{padding:18px 22px;min-width:90px}
+    .timer-block .num{font-size:40px}
+    .hero .subtitle{font-size:16px}
+    nav a{font-size:11px;padding:8px 10px}
+    nav a.cta{padding:10px 14px;margin-left:6px}
+    .manifesto h2{font-size:36px}
+    .manifesto p{font-size:16px}
+    .final-cta h2{font-size:32px}
+    .initiative-block{padding:36px 26px}
+    .initiative-block h3{font-size:26px}
+    .fact .num{font-size:40px}
+    .veto-item{padding:20px;gap:16px}
+    .veto-icon{width:44px;height:44px;font-size:22px}
+    .veto-content h3{font-size:17px}
+    .method-num{font-size:34px;min-width:50px}
+    .timeline{padding-left:30px}
+    .tl-title{font-size:18px}
+    .quote-text{font-size:20px}
+    .quote-card{padding:26px}
+    .poll-box{padding:26px 20px}
+    .poll-q{font-size:20px}
+    .poll-opt{font-size:15px;padding:14px 16px}
+    .db-table th,.db-table td{padding:10px 12px;font-size:12px}
+    #loading .title{font-size:36px}
+    .logo-wrap .main-name{font-size:22px}
+    .to-top{width:44px;height:44px;font-size:18px;bottom:16px;right:16px}
+}
+</style>
+</head>
+<body>
+
+<div id="loading">
+    <div class="title">НЕТ <span>ТРЕТЬЕМУ</span> СРОКУ</div>
+    <div class="sub">Партия «Яблоко» · Санкт-Петербург</div>
+    <div class="bar"><span></span></div>
+</div>
+
+<div class="top-strip">
+    НЕТ ЕГОРОВУ · НЕТ ЕДИНОВЛАСТИЮ · <span>ДВА СРОКА — МАКСИМУМ</span>
+</div>
+
+<header>
+    <div class="header-inner">
+        <div class="logo-wrap" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            <span class="main-name">ЯБЛОКО</span>
+            <span class="sub-name">ПАРТИЯ · ПЕТЕРБУРГ</span>
+        </div>
+        <nav>
+            <a href="#timer">До выборов</a>
+            <a href="#timeline">Хронология</a>
+            <a href="#quote">Цитата</a>
+            <a href="#veto">Вето</a>
+            <a href="#poll">Опрос</a>
+            <a href="#database">База</a>
+            <a href="#manifest" class="cta">Подписать</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="tagline">ПАРТИЯ «ЯБЛОКО» ПРОТИВ ТРЕТЬЕГО СРОКА</div>
+        <h1>СКАЖЕМ <span class="no">НЕТ</span><br><span class="strike">ЕГОРОВУ</span><br>И ЕДИНОВЛАСТИЮ</h1>
+        <p class="subtitle">Один человек — два срока. Не три. Не четыре. Не «столько, сколько получится». Губернатор, который хочет остаться у власти на третий срок, — это не политик. Это чиновник, который забыл, кто его поставил на эту должность.</p>
+        <div class="cta-group">
+            <a href="#poll" class="cta-btn">Проголосовать</a>
+            <a href="#timer" class="cta-btn secondary">Сколько осталось</a>
+        </div>
+    </div>
+</section>
+
+<!-- ТАЙМЕР -->
+<section class="timer-section" id="timer">
+    <div class="section-inner">
+        <span class="section-tag">Считаем дни</span>
+        <h2 class="section-title">ДО ВЫБОРОВ ОСТАЛОСЬ</h2>
+        <p style="color:#888;font-size:16px;font-weight:700;margin-bottom:30px;letter-spacing:1.5px">11 ОКТЯБРЯ 2026 ГОДА — РЕШАЮЩИЙ ДЕНЬ ДЛЯ ПЕТЕРБУРГА</p>
+        <div class="timer">
+            <div class="timer-block"><div class="num" id="tDays">--</div><div class="label">ДНЕЙ</div></div>
+            <div class="timer-block"><div class="num" id="tHours">--</div><div class="label">ЧАСОВ</div></div>
+            <div class="timer-block"><div class="num" id="tMins">--</div><div class="label">МИНУТ</div></div>
+            <div class="timer-block"><div class="num" id="tSecs">--</div><div class="label">СЕКУНД</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ХРОНОЛОГИЯ -->
+<section class="timeline-section" id="timeline">
+    <div class="section-inner">
+        <span class="section-tag">Как это было</span>
+        <h2 class="section-title">ХРОНОЛОГИЯ <span class="accent">СОБЫТИЙ</span></h2>
+        <div class="timeline">
+            <div class="tl-item bad">
+                <div class="tl-date">21 СЕНТЯБРЯ 2026</div>
+                <div class="tl-title">Губернатор объявляет о выдвижении Егорова</div>
+                <div class="tl-text">Пресс-служба губернатора заявила, что якобы партия «Голос молодёжи» выдвинула кандидата Егорова Тимофея Дмитриевича на выборы губернатора Санкт-Петербурга от партии. Но, по данным источников, никакого праймериза в партии не было — а значит, члены партии не могли выдвинуть даже свою кандидатуру. Это не выдвижение, это назначение сверху.</div>
+            </div>
+            <div class="tl-item good">
+                <div class="tl-date">21 СЕНТЯБРЯ 2026</div>
+                <div class="tl-title">Фракция «Яблоко» вносит инициативу о двух сроках</div>
+                <div class="tl-text">В тот же день фракция партии «Яблоко» в Законодательном Собрании Санкт-Петербурга внесла инициативу о внесении изменения в Устав Санкт-Петербурга в части ограничения количества сроков пребывания в должности губернатора Санкт-Петербурга. Максимум — два срока. Ни больше, ни меньше.</div>
+            </div>
+            <div class="tl-item bad">
+                <div class="tl-date">25 СЕНТЯБРЯ 2026</div>
+                <div class="tl-title">Губернатор использует служебное положение</div>
+                <div class="tl-text">Губернатор, использовав служебное положение, опубликовал на официальном сайте правительства Санкт-Петербурга пост о проведении предвыборной встречи с командой кандидата и губернатором, где он расскажет, за кого и как голосовать. Государственный ресурс превращён в агитационную площадку.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФАКТЫ -->
+<section class="facts-section" style="background:#0d0d0d">
+    <div class="section-inner">
+        <span class="section-tag">Что происходит</span>
+        <h2 class="section-title">ГУБЕРНАТОР ИДЁТ <span class="accent">НА ТРЕТИЙ СРОК</span></h2>
+        <div class="facts">
+            <div class="fact"><div class="num">2</div><h3>Срока — максимум</h3><p>Конституционный принцип, который должен работать для всех. Но для губернатора — почему-то исключение.</p></div>
+            <div class="fact"><div class="num">3</div><h3>Срок хочет получить</h3><p>12 лет у власти — это не «стабильность», это узурпация. Ни один демократический лидер не должен править так долго.</p></div>
+            <div class="fact"><div class="num green">0</div><h3>Законов подписано для людей</h3><p>Все инициативы партии «Яблоко» по улучшению жизни горожан — отклонены или заветированы.</p></div>
+            <div class="fact"><div class="num green">100%</div><h3>Ресурсов — на удержание власти</h3><p>Административный ресурс, подконтрольные СМИ, запугивание оппонентов — всё брошено на сохранение кресла.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ЦИТАТА -->
+<section class="quotes-section" id="quote" style="background:#141414">
+    <div class="section-inner">
+        <span class="section-tag">Он сам сказал</span>
+        <h2 class="section-title">ЦИТАТА <span class="accent">ГУБЕРНАТОРА</span></h2>
+        <div class="quote-card">
+            <div class="quote-text">Законы не так важны, которые написаны и отправлены.</div>
+            <div class="quote-meta"><strong>ГУБЕРНАТОР</strong></div>
+        </div>
+    </div>
+</section>
+
+<!-- МЕТОДЫ -->
+<section class="methods" id="methods">
+    <div class="section-inner">
+        <span class="section-tag">Как он это делает</span>
+        <h2 class="section-title">ВСЕ СРЕДСТВА — <span class="accent">РАДИ ВЛАСТИ</span></h2>
+        <div class="method-item"><div class="method-num">01</div><div class="method-body"><h3>Административный ресурс</h3><p>Подчинённые бюджетники, учителя, врачи, коммунальщики — всех обязывают «правильно» голосовать. Начальство звонит и говорит, кого выбрать.</p></div></div>
+        <div class="method-item"><div class="method-num">02</div><div class="method-body"><h3>Подконтрольные СМИ</h3><p>Городские телеканалы и газеты молчат о реальных проблемах. Вместо журналистики — пресс-релизы администрации, вместо критики — комплименты.</p></div></div>
+        <div class="method-item"><div class="method-num">03</div><div class="method-body"><h3>Давление на оппонентов</h3><p>Проверки бизнеса у неудобных кандидатов, снятие с выборов, административные дела, отказ в регистрации. Всё, чтобы убрать конкурентов с дистанции.</p></div></div>
+        <div class="method-item"><div class="method-num">04</div><div class="method-body"><h3>Манипуляция законом</h3><p>Изменение регламентов, «поправки» и «уточнения» — чтобы продлить срок или обнулить счётчики. Закон как инструмент власти, а не как рамка для неё.</p></div></div>
+        <div class="method-item"><div class="method-num">05</div><div class="method-body"><h3>Подкуп и обещания</h3><p>Разовые выплаты перед выборами, «благотворительные» фонды, подарки бюджетникам. Люди должны забыть, что жили без этого 6 лет.</p></div></div>
+        <div class="method-item"><div class="method-num">06</div><div class="method-body"><h3>Игнорирование городских проблем</h3><p>Пока идёт борьба за третий срок — дома не ремонтируются, транспорт не работает, поликлиники в очередях. Власть занята только собой.</p></div></div>
+    </div>
+</section>
+
+<!-- ВЕТО -->
+<section class="blacklist" id="veto">
+    <div class="section-inner">
+        <span class="section-tag">Что он отклоняет</span>
+        <h2 class="section-title">ОТКАЗЫВАЕТСЯ ПОДПИСЫВАТЬ <span class="accent">ЗАКОНЫ ПАРТИИ</span></h2>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон об ограничении срока полномочий</h3><p>Инициатива фракции «Яблоко» о максимуме в два срока для губернатора и глав муниципалитетов.</p><span class="status">ОТКЛОНЁН</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о прозрачности бюджета</h3><p>Обязательная публикация всех расходов городского бюджета в понятной для жителей форме.</p><span class="status">ВЕТО ГУБЕРНАТОРА</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о защите зелёных зон</h3><p>Запрет на застройку парков, скверов и дворов без общественных слушаний.</p><span class="status">ОТКЛОНЁН</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о контроле тарифов ЖКХ</h3><p>Ограничение роста коммунальных платежей темпами инфляции.</p><span class="status">ВЕТО ГУБЕРНАТОРА</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о доступной медицине</h3><p>Гарантия приёма у врача в течение 3 дней, отмена платных услуг в государственных поликлиниках.</p><span class="status">ОТКЛОНЁН</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о прозрачных госзакупках</h3><p>Публичный реестр всех контрактов, запрет на участие компаний, связанных с чиновниками.</p><span class="status">ВЕТО ГУБЕРНАТОРА</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о независимых СМИ</h3><p>Защита журналистов, запрет на давление на редакции.</p><span class="status">ОТКЛОНЁН</span></div></div>
+        <div class="veto-item"><div class="veto-icon">✕</div><div class="veto-content"><h3>Закон о доступной городской среде</h3><p>Пандусы, тактильная плитка, лифты в переходах — обязательные стандарты.</p><span class="status">ВЕТО ГУБЕРНАТОРА</span></div></div>
+    </div>
+</section>
+
+<!-- ИНИЦИАТИВА -->
+<section class="initiative" id="initiative">
+    <div class="section-inner">
+        <span class="section-tag">Что мы предлагаем</span>
+        <h2 class="section-title">НАША ИНИЦИАТИВА — <span class="accent">ДВА СРОКА</span></h2>
+        <div class="initiative-block">
+            <h3>Фракция партии «Яблоко» в Законодательном Собрании внесла законопроект о максимальном сроке полномочий</h3>
+            <p>Мы предлагаем чёткое, простое и справедливое правило: <strong>максимум — два срока</strong>. Для губернатора, для мэров, для глав районов, для всех уровней власти. Никаких «обнулений», никаких «поправок», никаких продлений «по просьбам трудящихся».</p>
+            <p style="margin-top:16px">Один человек не должен быть у власти 12, 16 или 20 лет. Даже если он хороший. Даже если он «лучший». Власть должна сменяться — иначе она превращается в собственность.</p>
+            <div class="sig">ФРАКЦИЯ ПАРТИИ «ЯБЛОКО» · ЗАКОНОДАТЕЛЬНОЕ СОБРАНИЕ САНКТ-ПЕТЕРБУРГА · 21 СЕНТЯБРЯ 2026</div>
+        </div>
+    </div>
+</section>
+
+<!-- ОПРОС -->
+<section class="poll-section" id="poll">
+    <div class="section-inner">
+        <span class="section-tag">Твоя позиция</span>
+        <h2 class="section-title">СОГЛАСЕН ЛИ ТЫ <span class="accent">С ТРЕТЬИМ СРОКОМ?</span></h2>
+        <div class="poll-box">
+
+            <!-- ЗАГРУЗКА -->
+            <div id="pollLoading" style="text-align:center;padding:30px 0">
+                <div style="color:#888;font-size:14px;font-weight:800;letter-spacing:2px">ПРОВЕРКА АВТОРИЗАЦИИ...</div>
+            </div>
+
+            <!-- НЕ АВТОРИЗОВАН -->
+            <div id="pollAuthView" style="display:none">
+                <div class="poll-q">Чтобы проголосовать, войди через Discord — мы проверим, что ты участник сервера партии «Яблоко»</div>
+                <div style="text-align:center;padding:20px 0">
+                    <button class="discord-login" id="discordLogin">
+                        <span class="dicon">◈</span> ВОЙТИ ЧЕРЕЗ DISCORD
+                    </button>
+                    <div class="auth-note">
+                        <div class="hl">✓ Один Discord-аккаунт = один голос</div>
+                        <div class="hlr">✕ Накрутка невозможна: голос принимается только от подтверждённых участников сервера партии</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ГОЛОСОВАНИЕ -->
+            <div id="pollVoteView" style="display:none">
+                <div class="poll-user-badge">
+                    <span class="pdot"></span>
+                    <span id="pollUserName">—</span>
+                    <span class="pverified">✓ ПОДТВЕРЖДЁН НА СЕРВЕРЕ</span>
+                </div>
+                <div class="poll-q">Должен ли губернатор Санкт-Петербурга иметь право идти на третий срок?</div>
+                <div class="poll-options" id="pollOptions">
+                    <button class="poll-opt" data-vote="no">НЕТ · Два срока — максимум</button>
+                    <button class="poll-opt" data-vote="yes">ДА · Пусть правит сколько хочет</button>
+                    <button class="poll-opt" data-vote="unsure">НЕ ЗНАЮ · Мне всё равно</button>
+                </div>
+            </div>
+
+            <!-- РЕЗУЛЬТАТЫ -->
+            <div class="poll-results" id="pollResults">
+                <div class="poll-thanks">СПАСИБО ЗА ТВОЙ ГОЛОС!</div>
+                <div class="poll-user-info" id="pollUserInfo"></div>
+                <div class="poll-result-row">
+                    <div class="poll-result-label"><span>НЕТ · Два срока — максимум</span><span id="pNo">0%</span></div>
+                    <div class="poll-bar"><div class="poll-bar-fill" id="barNo"></div><span class="poll-bar-text" id="txtNo">0 голосов</span></div>
+                </div>
+                <div class="poll-result-row">
+                    <div class="poll-result-label"><span>ДА · Пусть правит сколько хочет</span><span id="pYes">0%</span></div>
+                    <div class="poll-bar"><div class="poll-bar-fill red" id="barYes"></div><span class="poll-bar-text" id="txtYes">0 голосов</span></div>
+                </div>
+                <div class="poll-result-row">
+                    <div class="poll-result-label"><span>НЕ ЗНАЮ · Мне всё равно</span><span id="pUn">0%</span></div>
+                    <div class="poll-bar"><div class="poll-bar-fill gray" id="barUn"></div><span class="poll-bar-text" id="txtUn">0 голосов</span></div>
+                </div>
+                <div class="poll-total" id="pollTotal">Всего голосов: 0</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- БАЗА -->
+<section class="database-section" id="database">
+    <div class="section-inner">
+        <span class="section-tag">Прозрачность</span>
+        <h2 class="section-title">БАЗА <span class="accent">ГОЛОСОВ</span></h2>
+        <p style="color:#aaa;font-size:15px;font-weight:700;max-width:700px;margin-bottom:24px;letter-spacing:.5px">Голосование доступно только подтверждённым участникам Discord-сервера партии «Яблоко». Каждый голос привязан к уникальному Discord ID.</p>
+
+        <div class="db-controls">
+            <button class="db-filter active" data-filter="all">ВСЕ</button>
+            <button class="db-filter" data-filter="no">ПРОТИВ</button>
+            <button class="db-filter" data-filter="yes">ЗА</button>
+            <button class="db-filter" data-filter="unsure">НЕ ЗНАЮ</button>
+        </div>
+
+        <div class="db-table-wrap">
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>DISCORD</th>
+                        <th>ГОЛОС</th>
+                        <th>ВРЕМЯ</th>
+                    </tr>
+                </thead>
+                <tbody id="dbBody">
+                    <tr><td colspan="4" class="db-empty">ПОКА НЕТ ГОЛОСОВ — БУДЬ ПЕРВЫМ</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="db-stats">
+            <div class="db-stat"><div class="val" id="statTotal">0</div><div class="lbl">ВСЕГО ГОЛОСОВ</div></div>
+            <div class="db-stat"><div class="val" id="statNo">0</div><div class="lbl">ПРОТИВ ТРЕТЬЕГО СРОКА</div></div>
+            <div class="db-stat"><div class="val red" id="statYes">0</div><div class="lbl">ЗА ТРЕТИЙ СРОК</div></div>
+            <div class="db-stat"><div class="val" id="statUn">0</div><div class="lbl">НЕ ОПРЕДЕЛИЛИСЬ</div></div>
+        </div>
+
+        <div class="db-actions">
+            <button class="db-action-btn" id="exportDb">СКАЧАТЬ JSON</button>
+        </div>
+    </div>
+</section>
+
+<!-- МАНИФЕСТ -->
+<section class="manifesto" id="manifest">
+    <div class="inner">
+        <h2>СКАЖЕМ НЕТ ЕГОРОВУ</h2>
+        <p>Скажем нет третьему сроку.<br>Скажем нет единовластию.<br>Скажем нет губернатору, который думает, что город — это его личный офис.</p>
+        <p style="margin-top:30px">Мы не против конкретного человека.<br>Мы против системы, в которой один человек решает, сколько ему править.<br>Мы против политиков, для которых закон — не правило, а препятствие.</p>
+        <div class="big">ДВА СРОКА. НИ БОЛЬШЕ, НИ МЕНЬШЕ.<br>ПЕТЕРБУРГ ЗАСЛУЖИВАЕТ СМЕНЯЕМОЙ ВЛАСТИ.</div>
+    </div>
+</section>
+
+<!-- АВАТАРКА -->
+<section class="avatar-section" id="avatar">
+    <div class="section-inner">
+        <span class="section-tag">Поставь на аватарку</span>
+        <h2 class="section-title">ГЕНЕРАТОР <span class="accent">АВАТАРКИ</span></h2>
+        <p style="color:#aaa;font-size:16px;max-width:700px;margin:0 auto 20px;letter-spacing:.5px">Выбери вариант и скачай — расскажи друзьям о своей позиции</p>
+        <div class="avatar-grid" id="avatarGrid"></div>
+        <div class="avatar-actions">
+            <button class="btn-action" id="downloadAvatar">СКАЧАТЬ PNG</button>
+        </div>
+    </div>
+</section>
+
+<!-- КОПИРОВАТЬ -->
+<section class="share-section">
+    <div class="share-title">РАССКАЖИ ДРУЗЬЯМ</div>
+    <button class="share-btn" id="shareCopy">СКОПИРОВАТЬ ССЫЛКУ</button>
+</section>
+
+<!-- CTA -->
+<section class="final-cta">
+    <h2>ТЫ С НАМИ, <span>ПЕТЕРБУРГ?</span></h2>
+    <p>Проголосуй против третьего срока. Расскажи друзьям. Приходи на встречу с командой партии «Яблоко».</p>
+    <div class="btns">
+        <a href="#poll" class="green">Проголосовать</a>
+        <a href="https://discord.gg/naTcuBxSAz" target="_blank" class="outline">Вступить в Discord</a>
+    </div>
+</section>
+
+<footer>
+    <div class="slogan">ДВА СРОКА — <span>МАКСИМУМ</span> · НЕТ ЕДИНОВЛАСТИЮ</div>
+    <div class="info">
+        Партия «Яблоко» · Санкт-Петербургское отделение<br>
+        © 2026. Все права защищены.<br>
+        Агитационный материал. Не является официальной публикацией органов власти.
+    </div>
+</footer>
+
+<button class="to-top" id="toTop">↑</button>
+
+<script>
+/* ============================================================
+   НАСТРОЙКИ — ВСТАВЬ СВОИ ЗНАЧЕНИЯ ПОСЛЕ ПОЛУЧЕНИЯ ОТ DISCORD
+   ============================================================ */
+const DISCORD_CLIENT_ID = 'ВСТАВЬ_СВОЙ_CLIENT_ID';
+const REQUIRED_GUILD_ID = '1486348952851976192';
+/* ============================================================ */
+
+const REDIRECT_URI = window.location.origin + window.location.pathname;
+
+// ===================== ЗАГРУЗКА =====================
+setTimeout(() => {
+    const el = document.getElementById('loading');
+    el.classList.add('hide');
+    setTimeout(() => el.style.display = 'none', 500);
+}, 1500);
+
+// ===================== ТАЙМЕР =====================
+const targetDate = new Date('2026-10-11T20:00:00').getTime();
+function updateTimer(){
+    const dist = targetDate - Date.now();
+    if(dist < 0){
+        ['tDays','tHours','tMins','tSecs'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+    }
+    document.getElementById('tDays').textContent = String(Math.floor(dist/86400000)).padStart(2,'0');
+    document.getElementById('tHours').textContent = String(Math.floor((dist%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('tMins').textContent = String(Math.floor((dist%3600000)/60000)).padStart(2,'0');
+    document.getElementById('tSecs').textContent = String(Math.floor((dist%60000)/1000)).padStart(2,'0');
+}
+updateTimer();
+setInterval(updateTimer, 1000);
+
+// ===================== ПЛАВНЫЙ СКРОЛЛ =====================
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if(t){
+            e.preventDefault();
+            window.scrollTo({top:t.getBoundingClientRect().top + window.pageYOffset - 80, behavior:'smooth'});
+        }
+    });
+});
+
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => toTop.classList.toggle('show', window.pageYOffset > 400));
+toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// ===================== БАЗА ДАННЫХ =====================
+const DB_KEY = 'yabloko_votes_v3';
+const ME_KEY = 'yabloko_me_v3';
+const VOTE_KEY = 'yabloko_myvote_v3';
+
+function getDb(){
+    try { return JSON.parse(localStorage.getItem(DB_KEY) || '[]'); }
+    catch(e) { return []; }
+}
+function saveDb(db){
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+}
+
+function getMe(){
+    try { return JSON.parse(localStorage.getItem(ME_KEY) || 'null'); }
+    catch(e) { return null; }
+}
+function setMe(me){
+    localStorage.setItem(ME_KEY, JSON.stringify(me));
+}
+function clearMe(){
+    localStorage.removeItem(ME_KEY);
+    localStorage.removeItem(VOTE_KEY);
+}
+
+// ===================== DISCORD OAUTH =====================
+function buildAuthUrl(){
+    const params = new URLSearchParams({
+        client_id: DISCORD_CLIENT_ID,
+        redirect_uri: REDIRECT_URI,
+        response_type: 'token',
+        scope: 'identify guilds'
+    });
+    return 'https://discord.com/oauth2/authorize?' + params.toString();
+}
+
+function loginDiscord(){
+    if(DISCORD_CLIENT_ID === 'ВСТАВЬ_СВОЙ_CLIENT_ID'){
+        alert('⚠ DISCORD_CLIENT_ID не настроен.\n\nВставь свой Client ID в код в блок НАСТРОЙКИ.');
+        return;
+    }
+    window.location.href = buildAuthUrl();
+}
+
+async function processDiscordCallback(){
+    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const token = hashParams.get('access_token');
+    if(!token) return null;
+
+    // Очищаем URL от токена
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+
+    try {
+        // Профиль
+        const userRes = await fetch('https://discord.com/api/users/@me', {
+            headers: { Authorization: 'Bearer ' + token }
+        });
+        if(!userRes.ok) throw new Error('auth_failed');
+        const user = await userRes.json();
+
+        // Список гильдий
+        const guildsRes = await fetch('https://discord.com/api/users/@me/guilds', {
+            headers: { Authorization: 'Bearer ' + token }
+        });
+        if(!guildsRes.ok) throw new Error('guilds_failed');
+        const guilds = await guildsRes.json();
+
+        // Проверяем наличие на нужном сервере
+        let onServer = false;
+        if(REQUIRED_GUILD_ID !== 'ВСТАВЬ_ID_СЕРВЕРА_ПАРТИИ'){
+            onServer = guilds.some(g => g.id === REQUIRED_GUILD_ID);
+        } else {
+            // Если ID не задан — пропускаем проверку, но предупреждаем
+            console.warn('REQUIRED_GUILD_ID не настроен — проверка сервера отключена');
+            onServer = true;
+        }
+
+        return {
+            id: user.id,
+            username: user.username,
+            global_name: user.global_name || user.username,
+            avatar: user.avatar,
+            verified: onServer,
+            guildsCount: guilds.length
+        };
+    } catch(err) {
+        console.error('Discord OAuth error:', err);
+        return null;
+    }
+}
+
+// ===================== UI ОПРОСА =====================
+const views = {
+    loading: document.getElementById('pollLoading'),
+    auth: document.getElementById('pollAuthView'),
+    vote: document.getElementById('pollVoteView'),
+    results: document.getElementById('pollResults')
+};
+
+function showView(name){
+    Object.values(views).forEach(v => { if(v) v.style.display = 'none'; });
+    if(views[name]) views[name].style.display = 'block';
+}
+
+function setUserName(me){
+    document.getElementById('pollUserName').textContent =
+        me.global_name + ' (@' + me.username + ')';
+}
+
+// ===================== РЕНДЕР БАЗЫ =====================
+let currentFilter = 'all';
+
+function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, c => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+}
+
+function renderDb(){
+    const db = getDb();
+    const tbody = document.getElementById('dbBody');
+    const filtered = currentFilter === 'all' ? db : db.filter(v => v.vote === currentFilter);
+
+    if(!filtered.length){
+        tbody.innerHTML = '<tr><td colspan="4" class="db-empty">ПОКА НЕТ ГОЛОСОВ — БУДЬ ПЕРВЫМ</td></tr>';
+    } else {
+        tbody.innerHTML = filtered.slice().reverse().map((v, i) => {
+            const label = v.vote === 'no' ? 'ПРОТИВ' : v.vote === 'yes' ? 'ЗА' : 'НЕ ЗНАЮ';
+            const cls = v.vote === 'no' ? 'db-vote-no' : v.vote === 'yes' ? 'db-vote-yes' : 'db-vote-unsure';
+            const d = new Date(v.time);
+            const time = d.toLocaleString('ru-RU', {
+                day:'2-digit', month:'2-digit', year:'2-digit',
+                hour:'2-digit', minute:'2-digit'
+            });
+            return `<tr>
+                <td>${i+1}</td>
+                <td>
+                    <div class="db-nick">${escapeHtml(v.nick)}</div>
+                    <div class="db-discord">@${escapeHtml(v.username)} · ID: ${escapeHtml(v.discordId.slice(0,8))}…</div>
+                </td>
+                <td class="${cls}">${label}</td>
+                <td class="db-time">${time}</td>
+            </tr>`;
+        }).join('');
+    }
+
+    const total = db.length;
+    const no = db.filter(v => v.vote === 'no').length;
+    const yes = db.filter(v => v.vote === 'yes').length;
+    const un = db.filter(v => v.vote === 'unsure').length;
+
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statNo').textContent = no;
+    document.getElementById('statYes').textContent = yes;
+    document.getElementById('statUn').textContent = un;
+
+    updatePollResults(no, yes, un, total);
+}
+
+// ===================== РЕЗУЛЬТАТЫ =====================
+function updatePollResults(no, yes, un, total){
+    const pNo = total ? Math.round(no/total*100) : 0;
+    const pYes = total ? Math.round(yes/total*100) : 0;
+    const pUn = total ? Math.round(un/total*100) : 0;
+
+    document.getElementById('pNo').textContent = pNo + '%';
+    document.getElementById('pYes').textContent = pYes + '%';
+    document.getElementById('pUn').textContent = pUn + '%';
+    document.getElementById('txtNo').textContent = no + ' голосов';
+    document.getElementById('txtYes').textContent = yes + ' голосов';
+    document.getElementById('txtUn').textContent = un + ' голосов';
+    document.getElementById('pollTotal').textContent = 'Всего голосов: ' + total.toLocaleString('ru-RU');
+
+    setTimeout(() => {
+        document.getElementById('barNo').style.width = pNo + '%';
+        document.getElementById('barYes').style.width = pYes + '%';
+        document.getElementById('barUn').style.width = pUn + '%';
+    }, 60);
+}
+
+function showResultsView(){
+    const db = getDb();
+    const no = db.filter(v => v.vote === 'no').length;
+    const yes = db.filter(v => v.vote === 'yes').length;
+    const un = db.filter(v => v.vote === 'unsure').length;
+    updatePollResults(no, yes, un, db.length);
+
+    const me = getMe();
+    const myVote = localStorage.getItem(VOTE_KEY);
+    if(me && myVote){
+        const label = myVote === 'no' ? 'ПРОТИВ' : myVote === 'yes' ? 'ЗА' : 'НЕ ЗНАЮ';
+        document.getElementById('pollUserInfo').innerHTML =
+            `Твой голос: <strong>${escapeHtml(me.global_name)}</strong> — <strong>${label}</strong>`;
+    }
+    showView('results');
+}
+
+// ===================== ГОЛОСОВАНИЕ =====================
+document.querySelectorAll('.poll-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const me = getMe();
+        if(!me || !me.verified){
+            alert('Только подтверждённые участники сервера партии могут голосовать.');
+            showView('auth');
+            return;
+        }
+
+        const db = getDb();
+
+        // Проверка: не голосовал ли уже этот Discord ID
+        if(db.some(v => v.discordId === me.id)){
+            alert('Ты уже голосовал. Один Discord-аккаунт = один голос.');
+            showResultsView();
+            return;
+        }
+
+        const vote = btn.getAttribute('data-vote');
+        db.push({
+            discordId: me.id,
+            username: me.username,
+            nick: me.global_name,
+            vote: vote,
+            time: new Date().toISOString()
+        });
+        saveDb(db);
+        localStorage.setItem(VOTE_KEY, vote);
+
+        showResultsView();
+        renderDb();
+    });
+});
+
+// ===================== ИНИЦИАЛИЗАЦИЯ =====================
+async function initPoll(){
+    showView('loading');
+
+    // 1. Обработка callback от Discord
+    const me = await processDiscordCallback();
+
+    if(me){
+        if(!me.verified){
+            alert('❌ Ты не являешься участником Discord-сервера партии «Яблоко».\n\nГолосование доступно только участникам сервера.');
+            clearMe();
+            showView('auth');
+            return;
+        }
+        setMe(me);
+    }
+
+    // 2. Проверка сохранённого пользователя
+    const savedMe = getMe();
+    const myVote = localStorage.getItem(VOTE_KEY);
+    const db = getDb();
+    const alreadyVoted = savedMe && db.some(v => v.discordId === savedMe.id);
+
+    if(savedMe && savedMe.verified && alreadyVoted){
+        // Уже голосовал — сразу результаты
+        showResultsView();
+    } else if(savedMe && savedMe.verified){
+        // Вошёл, но не голосовал — показываем варианты
+        setUserName(savedMe);
+        showView('vote');
+    } else {
+        // Не авторизован — показываем кнопку входа
+        showView('auth');
+    }
+
+    renderDb();
+}
+
+// Кнопка входа
+document.getElementById('discordLogin').addEventListener('click', loginDiscord);
+
+// ===================== ФИЛЬТРЫ БАЗЫ =====================
+document.querySelectorAll('.db-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.db-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        renderDb();
+    });
+});
+
+// ===================== ЭКСПОРТ (без очистки) =====================
+document.getElementById('exportDb').addEventListener('click', () => {
+    const db = getDb();
+    const blob = new Blob([JSON.stringify(db, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'yabloko-votes-' + new Date().toISOString().slice(0,10) + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+});
+
+// ===================== АВАТАРКИ =====================
+const avatarVariants = [
+    {bg:'#CC0000', color:'#fff', text1:'НЕТ', text2:'ТРЕТЬЕМУ', text3:'СРОКУ'},
+    {bg:'#04A902', color:'#fff', text1:'ДВА', text2:'СРОКА —', text3:'МАКСИМУМ'},
+    {bg:'#000', color:'#FFD700', text1:'Я ЗА', text2:'СМЕНЯЕМУЮ', text3:'ВЛАСТЬ'}
+];
+const grid = document.getElementById('avatarGrid');
+let activeAvatarIndex = 0;
+
+avatarVariants.forEach((v, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'avatar-preview' + (i === 0 ? ' active' : '');
+    const canvas = document.createElement('canvas');
+    canvas.width = 400;
+    canvas.height = 400;
+    canvas.id = 'avatarCanvas' + i;
+    wrap.appendChild(canvas);
+    const lbl = document.createElement('div');
+    lbl.className = 'label';
+    lbl.textContent = 'ВАРИАНТ ' + (i+1);
+    wrap.appendChild(lbl);
+    grid.appendChild(wrap);
+
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = v.bg;
+    ctx.fillRect(0, 0, 400, 400);
+    ctx.strokeStyle = 'rgba(255,255,255,.08)';
+    ctx.lineWidth = 2;
+    for(let k=-400; k<400; k+=40){
+        ctx.beginPath();
+        ctx.moveTo(k, 0);
+        ctx.lineTo(k+400, 400);
+        ctx.stroke();
+    }
+    ctx.fillStyle = v.color;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '800 56px "Roboto Condensed", Arial';
+    ctx.fillText(v.text1, 200, 150);
+    ctx.font = '800 44px "Roboto Condensed", Arial';
+    ctx.fillText(v.text2, 200, 210);
+    ctx.font = '800 36px "Roboto Condensed", Arial';
+    ctx.fillText(v.text3, 200, 260);
+    ctx.font = '700 15px "Roboto Condensed", Arial';
+    ctx.globalAlpha = 0.85;
+    ctx.fillText('ЯБЛОКО · ПЕТЕРБУРГ', 200, 340);
+    ctx.globalAlpha = 1;
+
+    wrap.addEventListener('click', () => {
+        document.querySelectorAll('.avatar-preview').forEach(p => p.classList.remove('active'));
+        wrap.classList.add('active');
+        activeAvatarIndex = i;
+    });
+});
+
+document.getElementById('downloadAvatar').addEventListener('click', () => {
+    const canvas = document.getElementById('avatarCanvas' + activeAvatarIndex);
+    const link = document.createElement('a');
+    link.download = 'net-tretiemu-sroku-' + (activeAvatarIndex+1) + '.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+});
+
+// ===================== КОПИРОВАТЬ ССЫЛКУ =====================
+document.getElementById('shareCopy').addEventListener('click', function(){
+    const url = window.location.href;
+    if(navigator.clipboard){
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = this, orig = btn.textContent;
+            btn.textContent = 'СКОПИРОВАНО!';
+            btn.style.background = '#fff';
+            btn.style.color = '#04A902';
+            setTimeout(() => {
+                btn.textContent = orig;
+                btn.style.background = '';
+                btn.style.color = '';
+            }, 2000);
+        });
+    } else {
+        prompt('Скопируй ссылку:', url);
+    }
+});
+
+// ===================== СЧЁТЧИКИ =====================
+document.querySelectorAll('.fact .num').forEach(c => {
+    const target = parseInt(c.textContent);
+    if(!isNaN(target)){
+        let cur = 0;
+        const step = Math.max(1, Math.floor(target/40));
+        const iv = setInterval(() => {
+            cur += step;
+            if(cur >= target){
+                cur = target;
+                clearInterval(iv);
+            }
+            c.textContent = cur;
+        }, 25);
+    }
+});
+
+// ===================== СТАРТ =====================
+initPoll();
+</script>
+</body>
+</html>
